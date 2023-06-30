@@ -27,5 +27,17 @@ namespace RoleBasedAuthorization.Controllers
         {
             return await _context.PostDoctor(doctor);
         }
+
+        [HttpPut]
+        public async Task<Doctor> UpdateDoctor(string id, Doctor doctor)
+        {
+            return await _context.UpdateDoctor(id,doctor);
+        }
+
+        [HttpDelete]
+        public async Task<string> deleteRequest(string id)
+        {
+            return await _context.deleteRequest(id);
+        }
     }
 }

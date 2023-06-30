@@ -26,5 +26,25 @@ namespace RoleBasedAuthorization.Repository.Services
             return   doctor;
 
         }
+
+        public async Task<Doctor> UpdateDoctor(string id,Doctor doctor)
+        {
+            var doc = await  _context.Doctor.FindAsync(id);
+            doc.requestStatus=doctor.requestStatus;
+            doc.Experiance = doctor.Experiance;
+            doc.Email = doctor.Email;
+            doc.Specialization = doctor.Specialization;
+            _context.SaveChangesAsync();
+            return  doc;
+            
+        }
+        public async Task<string> deleteRequest(string id)
+        {
+            var doc = await _context.Doctor.FindAsync(id);
+            _context.Doctor.Remove(doc);
+            await _context.SaveChangesAsync();
+            return "Deleted Successfully";
+        }
+
     }
 }
