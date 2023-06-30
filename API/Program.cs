@@ -3,6 +3,8 @@ using JWTAuthenticationApp.Services;
 using Microsoft.EntityFrameworkCore;
 using RoleBasedAuthorization.Data;
 using RoleBasedAuthorization.Models;
+using RoleBasedAuthorization.Repository.Interfaces;
+using RoleBasedAuthorization.Repository.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBaseRepo<string, User>, UserRepo>();
 builder.Services.AddScoped<ITokenGenerate, TokenService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IDoctor,DoctorService>();
+
 builder.Services.AddDbContext<RoleBasedAuthorizationDbContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString(name: "AdminSkill")));
 
 builder.Services.AddCors(opts =>
