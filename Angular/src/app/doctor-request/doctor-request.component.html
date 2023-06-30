@@ -1,0 +1,27 @@
+
+<table class="table ">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Specialization</th>
+            <th scope="col">Experiance</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let req of request">
+            <td>{{req.id}}</td>
+            <td>{{req.firstName}}</td>
+            <td>{{req.email}}</td>
+            <td>{{req.specialization}}</td>
+            <td>{{req.experiance}}</td>
+            <td><button class="btn btn-success" (click)="handlePost(req)">Accept</button></td>
+            <td><button class="btn btn-danger" (click)="handleDelete(req)">Denied</button></td>
+
+        </tr>
+    </tbody>
+</table>
