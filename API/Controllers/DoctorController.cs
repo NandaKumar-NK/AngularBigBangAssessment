@@ -22,19 +22,25 @@ namespace RoleBasedAuthorization.Controllers
             return await _context.GetRequest();
         }
 
+        [HttpGet("Doctors")]
+        public async Task<List<Doctor>> DoctorDetails()
+        {
+            return await _context.DoctorDetails();
+        }
+
         [HttpPost]
         public async Task<Doctor> PostDoctor(Doctor doctor)
         {
             return await _context.PostDoctor(doctor);
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<Doctor> UpdateDoctor(string id, Doctor doctor)
         {
             return await _context.UpdateDoctor(id,doctor);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<string> deleteRequest(string id)
         {
             return await _context.deleteRequest(id);

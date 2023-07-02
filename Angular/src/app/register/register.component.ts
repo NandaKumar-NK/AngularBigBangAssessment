@@ -36,7 +36,9 @@ export class RegisterComponent implements OnInit {
       role: "",
       password: "",
       hashKey: "",
-      passwordClear: ""
+      passwordClear: "",
+      location:"",
+      phone:0
     }
     this.DoctorRegister={
       id:"",
@@ -49,7 +51,9 @@ export class RegisterComponent implements OnInit {
       experiance:0,
       requeststatus:"request",
       availability:"",
-      password:""
+      password:"",
+      location:"",
+      phone:0
     }
   
 
@@ -84,7 +88,9 @@ onRoleChange() {
     this.DoctorRegister.gender=this.register.gender;
     this.DoctorRegister.role=this.register.role;
     this.DoctorRegister.password=this.register.passwordClear;
-  
+    this.DoctorRegister.location=this.register.location;
+    this.DoctorRegister.phone=this.register.phone;
+ 
   }
 
   onPost()
@@ -149,7 +155,9 @@ export class registerModel
          role: string="";
          password: string="";
          hashKey: string="";
-         passwordClear: string=""
+         passwordClear: string="";
+         location:string="";
+         phone:number=0;
 
 }
 export class DoctorregisterModel
@@ -166,6 +174,7 @@ export class DoctorregisterModel
          requeststatus:string="request";
          availability:string="";
          password:string="";
-          
+         location:string="";
+         phone:number=0;
 
 }

@@ -7,6 +7,8 @@
             <th scope="col">Email</th>
             <th scope="col">Specialization</th>
             <th scope="col">Experiance</th>
+            <th scope="col">phone No</th>
+            <th scope="col">Location</th>
             <th scope="col"></th>
             <th scope="col"></th>
 
@@ -19,9 +21,13 @@
             <td>{{req.email}}</td>
             <td>{{req.specialization}}</td>
             <td>{{req.experiance}}</td>
+            <td>{{req.phone}}</td>
+            <td>{{req.location}}</td>
+
             <td><button class="btn btn-success" (click)="handlePost(req)">Accept</button></td>
-            <td><button class="btn btn-danger" (click)="handleDelete(req)">Denied</button></td>
+            <td><button class="btn btn-danger" (click)="handleDelete(req.id,req)">Denied</button></td>
 
         </tr>
     </tbody>
 </table>
+

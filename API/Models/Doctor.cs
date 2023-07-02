@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 
 namespace RoleBasedAuthorization.Models
 {
@@ -19,6 +20,11 @@ namespace RoleBasedAuthorization.Models
         public string requestStatus { get; set; } = string.Empty;
         public string availability { get; set; } = string.Empty;
         public string password { get; set; } = string.Empty;
+
+        public string location { get; set; } = string.Empty;
+        public string phone {  get; set; } =string.Empty;
+
+       
 
 
     }

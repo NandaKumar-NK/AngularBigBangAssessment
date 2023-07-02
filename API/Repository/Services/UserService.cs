@@ -4,6 +4,8 @@ using JWTAuthenticationApp.Models;
 using System.Security.Cryptography;
 using System.Text;
 using RoleBasedAuthorization.Models;
+using Microsoft.EntityFrameworkCore;
+using RoleBasedAuthorization.Repository.Interfaces;
 
 namespace JWTAuthenticationApp.Services
 {
@@ -11,11 +13,13 @@ namespace JWTAuthenticationApp.Services
     {
         private IBaseRepo<string, User> _repo;
         private ITokenGenerate _tokenService;
+       
 
         public UserService(IBaseRepo<string, User> repo, ITokenGenerate tokenGenerate)
         {
             _repo = repo;
             _tokenService = tokenGenerate;
+            
         }
         public UserDTO Login(UserDTO userDTO)
         {
@@ -53,6 +57,17 @@ namespace JWTAuthenticationApp.Services
                 user.Token = _tokenService.GenerateToken(user);
             }
             return user;
+        }
+
+        public async Task<string> deleteUser(string id)
+        {
+          var doc= _repo.Delete(id);
+            if(doc != null)
+            {
+                return "Deleted Successfully";
+            }
+            
+            return  "deleted successfully";
         }
     }
 }

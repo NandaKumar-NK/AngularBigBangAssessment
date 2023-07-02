@@ -34,5 +34,11 @@ namespace RoleBasedAuthorization.Controllers
                 }
                 return Ok(user);
             }
+
+        [HttpDelete("{id}")]
+        public async Task<string> deleteUser(string id)
+        {
+            return await _service.deleteUser(id);
+        } 
         }
 }

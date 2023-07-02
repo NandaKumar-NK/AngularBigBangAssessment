@@ -1,5 +1,6 @@
 ﻿using JWTAuthenticationApp.Interfaces;
 using JWTAuthenticationApp.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using RoleBasedAuthorization.Data;
 using RoleBasedAuthorization.Models;
 using System.Diagnostics;
@@ -36,6 +37,14 @@ namespace JWTAuthenticationApp.Services
             return user;
         }
 
+        public User Delete(string id)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Id == id);
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+            return user;
+        }
 
+      
     }
 }

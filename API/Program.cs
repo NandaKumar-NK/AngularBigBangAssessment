@@ -18,6 +18,7 @@ builder.Services.AddScoped<IBaseRepo<string, User>, UserRepo>();
 builder.Services.AddScoped<ITokenGenerate, TokenService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IDoctor,DoctorService>();
+builder.Services.AddScoped<IAppointmentService,AppointmentService>();
 
 builder.Services.AddDbContext<RoleBasedAuthorizationDbContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString(name: "AdminSkill")));
 

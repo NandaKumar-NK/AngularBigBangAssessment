@@ -37,7 +37,11 @@ export class LoginComponent {
       localStorage.setItem("role",this.loggedInUser.role);
       localStorage.setItem("login", new Date().toDateString());
       alert("Login Successful")
-      this.router.navigateByUrl('doctorRequests');
+      setTimeout(() => {
+        
+        this.router.navigate(['home']);
+      }, 1000);
+     
     },
     err=>{
       console.log(err)

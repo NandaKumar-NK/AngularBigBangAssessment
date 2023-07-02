@@ -15,7 +15,12 @@ namespace RoleBasedAuthorization.Models
         public string LastName { get; set; } = string.Empty;
         public string Gender { get; set; } = string.Empty;
         public string Role { get; set; }=string.Empty;
+        public string location { get; set; } = string.Empty;
+        public string phone { get; set; } = string.Empty;
+      
         public byte[]? Password { get; set; }
         public byte[]? HashKey { get; set; }
+
+       
     }
 }

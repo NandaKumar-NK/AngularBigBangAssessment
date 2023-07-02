@@ -15,7 +15,7 @@ export class DoctorRequestComponent {
   loggedInUser:LoggedInUserModel;
   registration_status = false;
 
-  register: { id: string; email: string; firstName: string; lastName: string; gender: string; role: string; password: string; hashKey: string; passwordClear: string; };
+  register: { id: string; email: string; firstName: string; lastName: string; gender: string; role: string; password: string; hashKey: string; passwordClear: string; location:string;phone:number;};
   constructor(private router :Router , private service : signupService,private location: Location) { 
     this.register =
     {
@@ -27,7 +27,9 @@ export class DoctorRequestComponent {
       role: "",
       password: "",
       hashKey: "",
-      passwordClear: ""
+      passwordClear: "",
+      location:"",
+      phone:0
     }
     this.loggedInUser=new LoggedInUserModel();
   }
@@ -44,42 +46,48 @@ export class DoctorRequestComponent {
     this.register.role=req.role;
     this.register.gender=req.gender;
     this.register.passwordClear=req.password;
+    this.register.location=req.location;
+    this.register.phone=req.phone;
     
     req.requestStatus="Accepted";
-console.log(req);
+   
+     this.handleUpdate(req);
 
     this.service.signup(this.register).subscribe(data=>{
       console.log("register in component")
-      this.loggedInUser = data as LoggedInUserModel;
-      console.log(this.loggedInUser);
+      // this.loggedInUser = data as LoggedInUserModel;
+      // console.log(this.loggedInUser);
       
-      localStorage.setItem("token",this.loggedInUser.token);
-      localStorage.setItem("UserID",this.loggedInUser.id);
-      localStorage.setItem("role",this.loggedInUser.role);
-      this.registration_status = true;
-    
+      // localStorage.setItem("token",this.loggedInUser.token);
+      // localStorage.setItem("UserID",this.loggedInUser.id);
+      // localStorage.setItem("role",this.loggedInUser.role);
+      // this.registration_status = true;
+      
     },
     err=>{
       console.log(err)
     });
+    
+}
 
-    this.service.DoctorStatus(req,req).subscribe(data=>{
-      console.log("Doctor Status updated")
-      window.location.reload();
-    })
+handleUpdate(req:any){
+  this.service.DoctorStatus(req.id,req).subscribe(data=>{
+    console.log("Doctor Status updated",req)
+    window.location.reload();
+  })
   
-  
- 
-
 }
   
 
-  handleDelete(req:any){
-    this.service.DeleteRequest(req).subscribe(data=>{
-      console.log("Doctor Status updated")
-     
+  handleDelete(id:string,req:any){
+    this.service.DeleteRequest(id,req).subscribe(data=>{
+      console.log("Doctor request deleted")
       window.location.reload();
     })
+     
+
+     
+    
   }
 
   private getrequests(): void {
@@ -87,6 +95,7 @@ console.log(req);
       this.request = result;
       console.log(this.request);
     });
+    
   }
 
 }
