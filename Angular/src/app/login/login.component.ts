@@ -39,9 +39,10 @@ export class LoginComponent {
       alert("Login Successful")
       setTimeout(() => {
         
-        this.router.navigate(['home']);
+        this.router.navigate(['/home']);
       }, 1000);
-     
+
+
     },
     err=>{
       console.log(err)

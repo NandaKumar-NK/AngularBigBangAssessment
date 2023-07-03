@@ -17,6 +17,14 @@ import { UpdateDoctorDetailsComponent } from './update-doctor-details/update-doc
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
 import { BookComponent } from './book/book.component';
+import { HistoryComponent } from './history/history.component';
+import { DoctorHistoryComponent } from './doctor-history/doctor-history.component';
+import { PatientHistoryComponent } from './patient-history/patient-history.component';
+import { doctorService } from 'src/Services/Doctor.service';
+import { appointmentService } from 'src/Services/appointment.service';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -29,7 +37,13 @@ import { BookComponent } from './book/book.component';
     UpdateDoctorDetailsComponent,
     HomePageComponent,
     AppointmentBookingComponent,
-    BookComponent
+    BookComponent,
+    HistoryComponent,
+    DoctorHistoryComponent,
+    PatientHistoryComponent,
+    FeedbackComponent,
+    PrescriptionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +52,7 @@ import { BookComponent } from './book/book.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [signupService],
+  providers: [signupService,doctorService,AuthGuard,appointmentService],
   bootstrap: [AppComponent],
 
 })

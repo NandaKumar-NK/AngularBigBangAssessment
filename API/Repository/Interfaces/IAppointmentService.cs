@@ -8,7 +8,9 @@ namespace RoleBasedAuthorization.Repository.Interfaces
         public Task<List<Appointment>> GetAppointments();
         public  Task<Appointment> PutAppointment(int id, Appointment appointment);
         public  Task<Appointment> PostAppointment(Appointment appointment);
-        public Task<List<Appointment>> GetAppointmentDetail(string Id);
+        public Task<List<Appointment>> GetAppointmentDetail(string id);
+        public Task<Appointment> PutAppointmentPrescription(int appointmentId, Appointment appointment);
+
 
     }
 }

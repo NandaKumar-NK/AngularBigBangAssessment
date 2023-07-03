@@ -28,6 +28,12 @@ namespace RoleBasedAuthorization.Controllers
             return await _context.DoctorDetails();
         }
 
+        [HttpGet("{id}")]
+        public async Task<Doctor> logedinDoctor(string id)
+        {
+            return await _context.logedinDoctor(id);
+        }
+
         [HttpPost]
         public async Task<Doctor> PostDoctor(Doctor doctor)
         {

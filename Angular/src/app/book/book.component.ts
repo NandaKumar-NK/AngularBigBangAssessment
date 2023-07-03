@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { doctorService } from 'src/Services/Doctor.service';
+import { appointmentService } from 'src/Services/appointment.service';
 import { signupService } from 'src/Services/signup.services';
 
 @Component({
@@ -10,8 +12,9 @@ import { signupService } from 'src/Services/signup.services';
 export class BookComponent {
   @Input() data?: any;
   appointment!:any;
+  DoctorRegister!:any;
 
-  constructor(private service:signupService,router: Router) {
+  constructor(private service:appointmentService,private docService:doctorService,router: Router) {
     
    this.appointment={
      appointmentId:0,
@@ -24,14 +27,46 @@ export class BookComponent {
      feedback:""
     
    }
+    
+ 
+
+ 
+ 
+
+    this.DoctorRegister={
+      id:"",
+      email:"",
+      firstName: "",
+      lastName: "",
+      gender: "",
+      role: "",
+      specialization:" ",
+      experiance:0,
+      requeststatus:"",
+      availability:"",
+      password:"",
+      location:"",
+      phone:0
+    }
+   }
+  
+
+  
+  ngOnInit(): void
+  {
+
+    this.docService.getDoctors().subscribe(detils=>this.DoctorRegister=detils);
+
+   
+  }
    
     
-  }
+  
   
   Book(book:any){
     this.appointment.patientId=localStorage.getItem('UserID');
    this.appointment.doctorId=this.data;
-console.log(localStorage.getItem('UserID'),this.data)
+
 
     this.service.bookappointment(this.appointment).subscribe((trainer: any) => console.log(trainer));
     if(confirm("Course updated successfully!!! "))

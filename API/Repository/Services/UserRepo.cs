@@ -15,7 +15,7 @@ namespace JWTAuthenticationApp.Services
         {
             _context = context;
         }
-        public User Add(User item)
+        public User? Add(User item)
         {
             try
             {

@@ -13,6 +13,7 @@ namespace RoleBasedAuthorization.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class AppointmentsController : ControllerBase
     {
         private readonly IAppointmentService _context;
@@ -31,11 +32,11 @@ namespace RoleBasedAuthorization.Controllers
 
         // GET: api/Appointments/5
         [HttpGet("{id}")]
-        public async Task<List<Appointment>> GetAppointmentDetail(string Id)
+        public async Task<List<Appointment>> GetAppointmentDetail(string id)
         {
             
 
-            return await _context.GetAppointmentDetail(Id);
+            return await _context.GetAppointmentDetail(id);
         }
 
         // PUT: api/Appointments/5
@@ -47,7 +48,16 @@ namespace RoleBasedAuthorization.Controllers
             return await _context.PutAppointment(id,appointment);
         }
 
-      
+
+
+        [HttpPut("Prescription/{appointmentId}")]
+        public async Task<ActionResult<Appointment>> PutAppointmentPrescription(int appointmentId, Appointment appointment)
+        {
+
+            return await _context.PutAppointmentPrescription(appointmentId, appointment);
+        }
+
+
         [HttpPost]
         public async Task<Appointment> PostAppointment(Appointment appointment)
         {

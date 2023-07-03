@@ -1,3 +1,5 @@
+
+
 <nav *ngIf="isLoggedIn">
     <div class="logoContainer">
         Heath care
@@ -9,9 +11,7 @@
             <a routerLink="/home" routerLinkActive="active">Home</a>
         </li>
   
-        <li *ngIf="role=='User'">
-            <a routerLink="/user-page" routerLinkActive="active">Appointment History</a>
-        </li>
+       
   
         <li *ngIf="role=='Doctor'">
           <a routerLink="/doctorDetail" routerLinkActive="active">Profile</a>
@@ -21,6 +21,7 @@
           <a routerLink="/appointment" routerLinkActive="active">Appointment Booking</a>
       </li>
 
+
       <li *ngIf="role=='Admin'">
         <a routerLink="/doctorRequests" routerLinkActive="active">Requests</a>
     </li>
@@ -28,13 +29,18 @@
       <li *ngIf="role=='Admin'">
           <a routerLink="/doctors" routerLinkActive="active">Doctors Details</a>
       </li>
+      <li *ngIf="role=='Admin'">
+        <a routerLink="/history" routerLinkActive="active">Appointments History</a>
+    </li>
   
-        <li *ngIf="role=='Admin'||'Doctor'">
-            <a routerLink="/admin-page" routerLinkActive="active">Appointment Details</a>
+        <li *ngIf="role=='Doctor'">
+            <a routerLink="/doctor-history" routerLinkActive="active">Appointment Details</a>
         </li>
-        <li>
-            <a routerLink="/login" routerLinkActive="active">Login/SignIn</a>
+        <li *ngIf="role=='User'">
+            <a routerLink="/patient-history" routerLinkActive="active">Appointment History</a>
         </li>
+
+       
   
         <li>
             <a (click)="logout()" style="cursor:pointer">Logout</a>

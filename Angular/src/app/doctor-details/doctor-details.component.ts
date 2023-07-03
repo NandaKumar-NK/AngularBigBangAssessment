@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { doctorService } from 'src/Services/Doctor.service';
 import { signupService } from 'src/Services/signup.services';
 
 @Component({
@@ -13,7 +14,7 @@ export class DoctorDetailsComponent  implements OnInit {
   DoctorRegister!:any;
 
  
-  constructor(private doctordet:signupService,router: Router) {
+  constructor(private doctordet:doctorService,private service:signupService,router: Router) {
 
     this.DoctorRegister={
       id:"",
@@ -46,7 +47,7 @@ export class DoctorDetailsComponent  implements OnInit {
     
   
 
-    this.doctordet.deleteDoctordetails(req.id, req).subscribe(
+    this.service.deleteDoctordetails(req.id, req).subscribe(
       () => {
         alert("Deleted successfully")
         confirm("Doctor "+req.id+" deleted Successfully!!!")

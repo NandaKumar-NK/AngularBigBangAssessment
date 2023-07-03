@@ -21,36 +21,13 @@ export class signupService{
     }
     
 
-    Doctorsignup(register:DoctorregisterModel){
-        console.log("register in servive")
-        return this.httpClient.post("https://localhost:7192/api/Doctor",register);
-    }
+   
 
-    getrequest(){
-        return this.httpClient.get("https://localhost:7192/api/Doctor");
-    }
-
-    DoctorStatus(id:string,req:DoctorregisterModel){
-        
-        return this.httpClient.put(`https://localhost:7192/api/Doctor`+'/'+id,req);
-    }
-
-    DeleteRequest(id:string,req:DoctorregisterModel){
-        return this.httpClient.delete("https://localhost:7192/api/Doctor/"+id);
-
-    }
-
-    getDoctors(){
-        return this.httpClient.get("https://localhost:7192/api/Doctor/Doctors");
-    }
 
     deleteDoctordetails(id:string,req:DoctorregisterModel){
         return this.httpClient.delete(`https://localhost:7192/api/User`+'/'+id);
     }
 
 
-    bookappointment(book:AppointmentModel){
-        return this.httpClient.post("https://localhost:7192/api/Appointments",book);
-
-    }
+  
 }

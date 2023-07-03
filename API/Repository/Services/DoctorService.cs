@@ -24,6 +24,11 @@ namespace RoleBasedAuthorization.Repository.Services
             return await _context.Doctor.Where(d => d.requestStatus == "Accepted").ToListAsync();
 
         }
+        public async Task<Doctor> logedinDoctor(string id)
+        {
+           var doc= _context.Doctor.Where(d => d.requestStatus == "Accepted").FirstOrDefaultAsync(x => x.Id == id);
+            return await doc;
+        }
 
 
         public async Task<Doctor> PostDoctor(Doctor doctor)

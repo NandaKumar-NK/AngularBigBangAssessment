@@ -3,6 +3,7 @@ import { LoggedInUserModel } from 'src/Models/LoggedInUser.model';
 import { Router } from '@angular/router';
 import { signupService } from 'src/Services/signup.services';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { doctorService } from 'src/Services/Doctor.service';
 // import validation from '../helper/validation';
 
 
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
    DoctorRegister!:any;
   loggedInUser:LoggedInUserModel;
 
-  constructor(private router :Router , private signupService : signupService, private fb:FormBuilder)
+  constructor(private router :Router , private doctorService : doctorService, private fb:FormBuilder,private signupService:signupService)
   {
     // this.register = new registerModel();
     this.register =
@@ -47,7 +48,7 @@ export class RegisterComponent implements OnInit {
       lastName: "",
       gender: "",
       role: "",
-      specialization:" ",
+      specialization:"",
       experiance:0,
       requeststatus:"request",
       availability:"",
@@ -99,7 +100,7 @@ onRoleChange() {
     {
 
       if(this.register.role=="Doctor"){
-        this.signupService.Doctorsignup(this.DoctorRegister).subscribe(data=>{
+        this.doctorService.Doctorsignup(this.DoctorRegister).subscribe(data=>{
           console.log("register request send to admin")
           setTimeout(() => {
             this.router.navigate(['login']);

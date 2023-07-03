@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoggedInUserModel } from 'src/Models/LoggedInUser.model';
 import { signupService } from 'src/Services/signup.services';
 import { Location } from '@angular/common';
+import { doctorService } from 'src/Services/Doctor.service';
 
 @Component({
   selector: 'app-doctor-request',
@@ -16,7 +17,7 @@ export class DoctorRequestComponent {
   registration_status = false;
 
   register: { id: string; email: string; firstName: string; lastName: string; gender: string; role: string; password: string; hashKey: string; passwordClear: string; location:string;phone:number;};
-  constructor(private router :Router , private service : signupService,private location: Location) { 
+  constructor(private router :Router , private docservice : doctorService,private service:signupService ,private location: Location) { 
     this.register =
     {
       id:"",
@@ -71,7 +72,7 @@ export class DoctorRequestComponent {
 }
 
 handleUpdate(req:any){
-  this.service.DoctorStatus(req.id,req).subscribe(data=>{
+  this.docservice.DoctorStatus(req.id,req).subscribe(data=>{
     console.log("Doctor Status updated",req)
     window.location.reload();
   })
@@ -80,7 +81,7 @@ handleUpdate(req:any){
   
 
   handleDelete(id:string,req:any){
-    this.service.DeleteRequest(id,req).subscribe(data=>{
+    this.docservice.DeleteRequest(id,req).subscribe(data=>{
       console.log("Doctor request deleted")
       window.location.reload();
     })
@@ -91,7 +92,7 @@ handleUpdate(req:any){
   }
 
   private getrequests(): void {
-    this.service.getrequest().subscribe(result => {
+    this.docservice.getrequest().subscribe(result => {
       this.request = result;
       console.log(this.request);
     });

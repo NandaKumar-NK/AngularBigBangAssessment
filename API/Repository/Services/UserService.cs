@@ -21,7 +21,7 @@ namespace JWTAuthenticationApp.Services
             _tokenService = tokenGenerate;
             
         }
-        public UserDTO Login(UserDTO userDTO)
+        public UserDTO? Login(UserDTO userDTO)
         {
             UserDTO user = null;
             var userData = _repo.Get(userDTO.Id);
@@ -43,7 +43,7 @@ namespace JWTAuthenticationApp.Services
         }
         public UserDTO Register(UserRegisterDTO userDTO)
         {
-            UserDTO user = null;
+            UserDTO? user = null;
             var hmac = new HMACSHA512();
             userDTO.Password = hmac.ComputeHash(Encoding.UTF8.GetBytes(userDTO.PasswordClear));
             userDTO.HashKey = hmac.Key;
