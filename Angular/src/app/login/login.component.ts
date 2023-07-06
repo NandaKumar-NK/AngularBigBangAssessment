@@ -16,7 +16,7 @@ export class LoginComponent {
   userDTO:UserDTOModel
   loggedInUser:LoggedInUserModel
   
-
+showerror=false;
   constructor(private signupService : signupService, private router : Router){
     this.userDTO=new UserDTOModel();
     this.loggedInUser=new LoggedInUserModel
@@ -27,6 +27,8 @@ export class LoginComponent {
 
   Login(){
 
+
+    if(this.userDTO.id!='' || this.userDTO.password!=''){
     this.signupService.userLogin(this.userDTO).subscribe(data=>{
       
       this.loggedInUser = data as LoggedInUserModel;
@@ -37,17 +39,23 @@ export class LoginComponent {
       localStorage.setItem("role",this.loggedInUser.role);
       localStorage.setItem("login", new Date().toDateString());
       alert("Login Successful")
-      setTimeout(() => {
+      
         
-        this.router.navigate(['/home']);
-      }, 1000);
-
+        this.router.navigate(['home']).then(() => {
+          // Optional: Scroll to the top of the page
+          window.scrollTo(0, 0);
+          location.reload();
+      });
+    
 
     },
     err=>{
       console.log(err)
       alert("Invalid Username/password")
     });
+  }else{
+    alert("Please fill all the fileds")
+  }
   }
 
   move(){

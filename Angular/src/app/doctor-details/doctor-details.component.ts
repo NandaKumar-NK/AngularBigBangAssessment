@@ -50,7 +50,7 @@ export class DoctorDetailsComponent  implements OnInit {
     this.service.deleteDoctordetails(req.id, req).subscribe(
       () => {
         alert("Deleted successfully")
-        confirm("Doctor "+req.id+" deleted Successfully!!!")
+        confirm("Doctor  deleted Successfully!!!")
         {
           window.location.reload();
         }

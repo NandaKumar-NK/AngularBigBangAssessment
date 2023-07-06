@@ -45,17 +45,18 @@ namespace RoleBasedAuthorization.Repository.Services
             if (doc != null)
             {
                 doc.Experiance = doctor.Experiance;
-                doc.Email = doctor.Email;
+               
                 doc.requestStatus = doctor.requestStatus;
                 doc.Specialization = doctor.Specialization;
                 doc.location = doctor.location;
                 doc.phone = doctor.phone;
 
                 await _context.SaveChangesAsync();
+                return doc;
             }
 
          
-            return  doc;
+            return  null;
             
         }
         public async Task<string> deleteRequest(string id)

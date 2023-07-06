@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+    font-style: italic;
+    font-family: 'Verdana';
+    color: rgb(49, 48, 48);
+    font-variant: small-caps;
+    font-weight: 500;
+}
+th{
+    background-color: rgb(130, 189, 230);
+}
+table{
+    border: 1px solid black;
+}

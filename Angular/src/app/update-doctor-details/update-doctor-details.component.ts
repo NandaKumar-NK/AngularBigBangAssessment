@@ -9,36 +9,50 @@ import { doctorService } from 'src/Services/Doctor.service';
 export class UpdateDoctorDetailsComponent {
   doctorId= localStorage.getItem("UserID");
   request: any;
-  DoctorRegister: { specialization: any; experiance: any; requeststatus: string; availability: string; location: any; phone: any; } | undefined;
+  DoctorRegister: { specialization: string; experiance: any; requeststatus: string; availability: string; location: any; phone: any; } ;
   // DoctorRegister: { specialization: string; experiance: number; requeststatus: string; availability: string; location: string; phone: number; };
 
   constructor( private doctorservice:doctorService){
-  
+ 
     this.getDoctor(this.doctorId);
+    this.DoctorRegister={
+     
+      specialization:"",
+      experiance:0,
+      requeststatus:"Accepted",
+      availability:"Available",
+     
+      location:"",
+      phone:""
+    }
    
 
   }
 
+  updateProfile(request:any){
+   
+    console.log( request.id);
+    console.log(this.DoctorRegister);
+
+    this.doctorservice.DoctorStatus(request.id,this.DoctorRegister)
+    .subscribe((pres: any) => console.log(pres));
+    if(confirm("Profile Updated successfully!!! "))
+    {
+     window.location.reload();
+    this.getDoctor(this.doctorId);
+    }
+  }
   
 
   getDoctor(doctorId:any){
 
-
+console.log(doctorId);
     this.doctorservice.DoctorDetail(doctorId).subscribe((result: any) => {
       this.request = result;
       console.log(this.request);
+      
     });
-    this.DoctorRegister={
-     
-      specialization:this.request.specialization,
-      experiance:this.request.experiance,
-      requeststatus:"",
-      availability:"Available",
-     
-      location:this.request.location,
-      phone:this.request.phone
-    }
-    console.log(this.DoctorRegister);
+    console.log(this.request);
     
   }
  
@@ -46,13 +60,13 @@ export class UpdateDoctorDetailsComponent {
 export class DoctorupdateModel
 {
 
-         specialization:string=" ";
+         specialization:string="";
          experiance:number=0;
-         requeststatus:string="request";
+         requeststatus:string="";
          availability:string="";
         
          location:string="";
-         phone:number=0;
+         phone:string="";
           
 
 }

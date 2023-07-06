@@ -1,37 +1,41 @@
+<br>
+<br>
 <h1>My Appointment History</h1>
-
-<table class="table ">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">patient Name</th>
-            <th scope="col">Doctor Id</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time Slot</th>
-            <th scope="col">Reason</th>
-            <th scope="col">Medical Information</th>
-            <th scope="col">Feedback</th>
+<br>
+<br>
+<div class="container">
+    <table class="table ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">patient Name</th>
+                <th scope="col">Doctor Id</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time Slot</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Medical Information</th>
+                <th scope="col">Feedback</th>
             
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let req of request">
-            <td>{{req.appointmentId}}</td>
-            <td>{{req.patientId}}</td>
-            <td>{{req.doctorId}}</td>
-            <td>{{req.date}}</td>
-            <td>{{req.timeSlot}}</td>
-            <td>{{req.details}}</td>
-            <td><button class="btn btn-info"  data-toggle="modal" data-target="#PresupdateModal" (click)="addprescription(req.appointmentId)">Prescription</button></td>
-            <td>{{req.feedback}}</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let req of request">
+                <td>{{req.appointmentId}}</td>
+                <td>{{req.patientId}}</td>
+                <td>{{req.doctorId}}</td>
+                <td>{{req.date}}</td>
+                <td>{{req.timeSlot}}</td>
+                <td>{{req.details}}</td>
+                <td><button class="btn btn-info"  data-toggle="modal" data-target="#PresupdateModal" (click)="addprescription(req.appointmentId)">Prescription</button></td>
+                <td>{{req.feedback}}</td>
 
 
            
 
-        </tr>
-    </tbody>
-</table>
-
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <app-prescription data="{{appointId}}"></app-prescription>

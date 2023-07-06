@@ -1,11 +1,11 @@
 
-<div class="container">
+<!-- <div class="container">
     <h1>Doctors List</h1>
     
   
     <div class="row">
       <div class=" card card-inverse  " style="height: 366px;" *ngFor="let c of DoctorRegister">
-        <!-- <img src=".\assets\images\{{c.imageLocation|slice:-12}}" class="card-img-top" alt="Image Description" > -->
+        <img src=".\assets\images\{{c.imageLocation|slice:-12}}" class="card-img-top" alt="Image Description" > 
         <h3 class="card-title border-bottom font-monospace">{{c.id}}</h3>
         <p class="card-text">Specialization : {{c.specialization}}</p>
         <p class="card-text">Experiance : {{c.experiance}} Years</p>
@@ -14,9 +14,34 @@
       
         <div id="buttons">
             <button class="btn btn-danger " (click)=" deleteDoctor(c)">Delete</button>
-            </div>
+        </div>
      
+      </div>
+    </div>
+</div>       -->
+<br>
+<h1>Doctors List</h1>
+<br>
+<div class="container mx-auto mt-4"> 
+  <div class="row">
+    <div class="col-md-4" *ngFor="let c of DoctorRegister">
+      <div class="card" style="width: 21rem;"  >
+        <div id="img">
+        <img src="../../assets/{{c.id}}.png" class="card-img-top" alt="..."></div>
+          <div class="card-body">
+            <h5 class="card-title">{{c.id}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{c.specialization}}</h6>
+            <p class="card-text">Experiance : {{c.experiance}} Years</p>
+            <p class="card-text">Location : {{c.location}}</p>
+            <p class="card-text">Contact No: {{c.phone}}</p>
+            <div id="buttons">
+              <button class="btn btn-danger " (click)=" deleteDoctor(c)">Delete</button>
+            </div>
+          </div>
+      </div>
+    </div> 
   </div>
+</div>    
   
   
 

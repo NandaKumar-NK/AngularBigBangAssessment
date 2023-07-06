@@ -101,7 +101,7 @@ onRoleChange() {
 
       if(this.register.role=="Doctor"){
         this.doctorService.Doctorsignup(this.DoctorRegister).subscribe(data=>{
-          console.log("register request send to admin")
+          alert("register request send to admin")
           setTimeout(() => {
             this.router.navigate(['login']);
           }, 3000);
@@ -118,6 +118,7 @@ onRoleChange() {
         localStorage.setItem("role",this.loggedInUser.role);
         this.registration_status = true;
         setTimeout(() => {
+          alert("User Registered Successfully")
           this.router.navigate(['login']);
         }, 3000);
         // alert(`\t ........Registration successfull........

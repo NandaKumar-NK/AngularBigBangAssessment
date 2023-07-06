@@ -22,10 +22,7 @@ export class FeedbackComponent {
       this.appointment={
         
    
-    // date:this.request.date,
-    // timeSlot:this.request.timeSlot,
-    // details:this.request.details,
-    // medicalInfo:this.request.medicalInfo,
+    
     feedback:""
        
       }
@@ -45,10 +42,6 @@ export class FeedbackComponent {
   }
 }
 export class AppointmentupdateModel{
-  
-  // date:string="";timeSlot: string; details: string; medicalInfo: string;
-  // timeSlot:string="";
-  // details:string="";
-  // medicalInfo:string="";
+ 
   feedback:string="";
  }

@@ -1,0 +1,96 @@
+
+.head{
+    display: flex;
+    justify-content: center;
+}
+form {
+	margin: 7px;
+    margin-left: 40px;
+}
+h1{
+  text-align: center;
+  font-style: italic;
+  font-family: 'Verdana';
+  color: rgb(49, 48, 48);
+  font-variant: small-caps;
+  font-weight: 500;
+}
+.card {
+  background: #e6ecee7a;
+  border: 1px solid #dd2476;
+  color: rgba(41, 41, 41, 0.8);
+  margin-bottom: 2rem;
+}
+img{
+  height: 200px;
+}
+input {
+	outline: none;
+}
+
+input[type=search] {
+	
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+input[type=search] {
+	padding: 9px 10px 9px 32px;
+	width: 45px;
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	
+	-webkit-border-radius: 10em;
+	   -moz-border-radius: 10em;
+	        border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	   -moz-transition: all .5s;
+	        transition: all .5s;
+}
+input[type=search]:focus {
+	width: 280px;
+	background-color: #fff;
+	border-color: #66a8cc;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	   -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	        box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+h1{
+    text-align: center;
+    font-style: italic;
+    font-family: 'Verdana';
+    color: rgb(49, 48, 48);
+    font-variant: small-caps;
+    font-weight: 500;
+}
+.card {
+    background: #e6ecee7a;
+    border: 1px solid #2496dd;
+    color: rgba(41, 41, 41, 0.8);
+    margin-bottom: 2rem;
+  }
+  
+  .btn btn-info{
+    border: 2px solid;
+    color: rgb(0, 0, 0);
+    border-image-slice: 1;
+    -webkit-text-fill-color: #000000 !important;
+    background: var(--gradient) !important;
+    -webkit-text-fill-color: transparent !important;
+    border-image-source:  var(--gradient) !important; 
+    text-decoration: none;
+    transition: all .4s ease;
+  }
+  
+  .btn btn-info:hover, .btn btn-danger:focus {
+        background: var(--gradient) !important;
+    -webkit-text-fill-color: #000000 !important;
+    border: 5px solid red !important; 
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline;
+  }

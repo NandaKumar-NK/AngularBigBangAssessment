@@ -14,8 +14,9 @@ export class BookComponent {
   appointment!:any;
   DoctorRegister!:any;
 
+
   constructor(private service:appointmentService,private docService:doctorService,router: Router) {
-    
+    console.log(this.data);
    this.appointment={
      appointmentId:0,
      patientId:"",
@@ -69,7 +70,7 @@ export class BookComponent {
 
 
     this.service.bookappointment(this.appointment).subscribe((trainer: any) => console.log(trainer));
-    if(confirm("Course updated successfully!!! "))
+    if(confirm(" Appointment booked successfully "))
     {
       window.location.reload();
     }

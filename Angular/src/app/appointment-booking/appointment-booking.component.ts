@@ -12,8 +12,10 @@ export class AppointmentBookingComponent implements OnInit {
   [x: string]: any;
   @ViewChild('myModal') modal: any; 
   // Add this line
-  
+  search!:string ;
   DoctorRegister!:any;
+  condition:boolean=false;
+  filteredCourses?: DoctorregisterModel;
 
   openModal() {
     this.modal.nativeElement.style.display = 'block'; // Show the modal
@@ -38,7 +40,7 @@ export class AppointmentBookingComponent implements OnInit {
    }
   
 
-  selectedDoctorId?: number;
+  selectedDoctorId!: string;
 
   ngOnInit(): void
   {
@@ -49,8 +51,10 @@ export class AppointmentBookingComponent implements OnInit {
   bookAppointment(c:any){
     this.selectedDoctorId = c.id;
   
-  
+  console.log(this.selectedDoctorId);
   }
+  
+
 }
   
 export class DoctorregisterModel

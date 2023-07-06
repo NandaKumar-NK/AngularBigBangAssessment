@@ -4,6 +4,7 @@ import {Injectable} from '@angular/core';
 import { registerModel } from "src/Models/register.model";
 import { DoctorregisterModel } from "src/app/register/register.component";
 import { AppointmentModel } from "src/app/book/book.component";
+import { DoctorupdateModel } from "src/app/update-doctor-details/update-doctor-details.component";
 
 @Injectable()
 export class doctorService{
@@ -21,8 +22,8 @@ export class doctorService{
         return this.httpClient.get("https://localhost:7192/api/Doctor");
     }
 
-    DoctorStatus(id:string,req:DoctorregisterModel){
-        
+    DoctorStatus(id:string,req:DoctorupdateModel){
+        console.log("doctor status Updated!!!")
         return this.httpClient.put(`https://localhost:7192/api/Doctor`+'/'+id,req);
     }
 
@@ -36,6 +37,7 @@ export class doctorService{
     }
 
     DoctorDetail(id:string){
+       
         return this.httpClient.get("https://localhost:7192/api/Doctor/"+id);
     }
 }

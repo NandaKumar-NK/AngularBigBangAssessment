@@ -13,11 +13,12 @@
               
 
               <div class="form-group">
-                <label>Date</label>
+                <label>Select Your Date</label>
                 <input type="date" class="form-control" name="name" [(ngModel)]="appointment.date">
               </div>
+              <br>
               <div>
-                <label for="timeslot">Select a Timeslot:</label>
+                
                 <select id="timeslot" name="timeslot" [(ngModel)]="appointment.timeSlot">
                   <option value="">-- Select a Timeslot --</option>
                   <option  value="6 - 6.30 pm">6 - 6.30 pm</option>
@@ -26,8 +27,9 @@
                   <option  value="7.30 - 8 pm">7.30 - 8 pm</option>
                 </select>
               </div>
+              <br>
               <div class="form-group">
-                <label >cause Detail :</label>
+                <label >Cause Detail :</label>
                 <input type="text" class="form-control" name="about" [(ngModel)]="appointment.details">
               </div>
 
@@ -45,3 +47,5 @@
   </div>
   
 
+  
+ 

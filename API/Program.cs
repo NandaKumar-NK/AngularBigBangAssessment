@@ -20,7 +20,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IDoctor,DoctorService>();
 builder.Services.AddScoped<IAppointmentService,AppointmentService>();
 
-builder.Services.AddDbContext<RoleBasedAuthorizationDbContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString(name: "AdminSkill")));
+builder.Services.AddDbContext<RoleBasedAuthorizationDbContext>(optionsAction: options => options.UseSqlServer(builder.Configuration.GetConnectionString(name: "HealthCare")));
 
 builder.Services.AddCors(opts =>
 {

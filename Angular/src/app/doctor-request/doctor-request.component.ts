@@ -56,13 +56,7 @@ export class DoctorRequestComponent {
 
     this.service.signup(this.register).subscribe(data=>{
       console.log("register in component")
-      // this.loggedInUser = data as LoggedInUserModel;
-      // console.log(this.loggedInUser);
       
-      // localStorage.setItem("token",this.loggedInUser.token);
-      // localStorage.setItem("UserID",this.loggedInUser.id);
-      // localStorage.setItem("role",this.loggedInUser.role);
-      // this.registration_status = true;
       
     },
     err=>{
@@ -73,7 +67,8 @@ export class DoctorRequestComponent {
 
 handleUpdate(req:any){
   this.docservice.DoctorStatus(req.id,req).subscribe(data=>{
-    console.log("Doctor Status updated",req)
+    console.log("Doctor Status updated",req);
+    alert("Doctor Updated Successfully!!!")
     window.location.reload();
   })
   

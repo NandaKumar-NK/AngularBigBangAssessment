@@ -1,0 +1,36 @@
+h1{
+    text-align: center;
+    font-style: italic;
+    font-family: 'Verdana';
+    color: rgb(49, 48, 48);
+    font-variant: small-caps;
+    font-weight: 500;
+}
+.card {
+    background: #e6ecee7a;
+    border: 1px solid #dd2476;
+    color: rgba(41, 41, 41, 0.8);
+    margin-bottom: 2rem;
+  }
+  img{
+    height: 200px;
+  }
+  .btn btn-danger{
+    border: 2px solid;
+    color: rgb(0, 0, 0);
+    border-image-slice: 1;
+    -webkit-text-fill-color: #000000 !important;
+    background: var(--gradient) !important;
+    -webkit-text-fill-color: transparent !important;
+    border-image-source:  var(--gradient) !important; 
+    text-decoration: none;
+    transition: all .4s ease;
+  }
+  
+  .btn btn-danger:hover, .btn btn-danger:focus {
+        background: var(--gradient) !important;
+    -webkit-text-fill-color: #000000 !important;
+    border: 5px solid red !important; 
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline;
+  }

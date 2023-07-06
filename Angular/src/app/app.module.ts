@@ -25,6 +25,7 @@ import { appointmentService } from 'src/Services/appointment.service';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
 import { FooterComponent } from './footer/footer.component';
+import { TokenInterceptorService } from 'src/token-interceptor.service';
 
 
 @NgModule({
@@ -52,7 +53,7 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [signupService,doctorService,AuthGuard,appointmentService],
+  providers: [signupService,doctorService,AuthGuard,appointmentService,TokenInterceptorService],
   bootstrap: [AppComponent],
 
 })
